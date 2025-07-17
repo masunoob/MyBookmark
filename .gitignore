@@ -1,0 +1,33 @@
+# Python
+*.pyc
+__pycache__/
+.Python
+env/
+venv/
+pip-log.txt
+pip-delete-this-arg.txt
+.tox/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+
+# Django specific
+*.log
+*.pot
+*.mo
+local_settings.py
+db.sqlite3
+/media/
+
+# IDEs and others
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# OS generated files
+.Trashes
+ehthumbs.db
