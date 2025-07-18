@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Bookmark
 from .forms import BookmarkForm
-from django.shortcuts import redirect
 
 # Create your views here.
 def bookmark_list(request):
@@ -19,4 +18,15 @@ def bookmark_create(request):
             return redirect('bookmark_list')
     else:
         form = BookmarkForm()
+    return render(request, 'main_app/bookmark_form.html', {'form': form})
+
+def bookmark_edit(request, pk):
+    bookmark = get_object_or_404(Bookmark, pk=pk)
+    if request.method == 'POST':
+        form = BookmarkForm(request.POST, instance=bookmark)
+        if form.is_valid():
+            form.save()
+            return redirect('bookmark_list')
+    else:
+        form = BookmarkForm(instance=bookmark)
     return render(request, 'main_app/bookmark_form.html', {'form': form})
