@@ -1,9 +1,15 @@
 {% load static %}
 
 <h1>ブックマーク一覧</h1>
+
+<a href="{% url 'bookmark_create' %}">ブックマーク作成</a>
+
 <ul>
     {% for bookmark in context.bookmarks %}
-        <li><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a> - {{ bookmark.description }}</li>
+        <li><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a> - {{ bookmark.description }}
+            <a href="{% url 'bookmark_edit' bookmark.pk %}">編集</a>
+            <a href="{% url 'bookmark_delete' bookmark.pk %}">削除</a>
+        </li>
     {% empty %}
         <li>ブックマークはまだありません。</li>
     {% endfor %}
