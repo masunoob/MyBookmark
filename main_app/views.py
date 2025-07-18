@@ -30,3 +30,10 @@ def bookmark_edit(request, pk):
     else:
         form = BookmarkForm(instance=bookmark)
     return render(request, 'main_app/bookmark_form.html', {'form': form})
+
+def bookmark_delete(request, pk):
+    bookmark = get_object_or_404(Bookmark, pk=pk)
+    if request.method == 'POST':
+        bookmark.delete()
+        return redirect('bookmark_list')
+    return render(request, 'main_app/bookmark_confirm_delete.html', {'bookmark': bookmark})

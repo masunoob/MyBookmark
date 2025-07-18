@@ -1,0 +1,10 @@
+<h1>ブックマーク削除</h1>
+<p>本当にこのブックマークを削除しますか？</p>
+<p>{{ bookmark.title }}</p>
+<p>{{ bookmark.url }}</p>
+<p>{{ bookmark.description }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">削除</button>
+    <a href="{% url 'bookmark_list' %}">戻る</a>
+</form>
