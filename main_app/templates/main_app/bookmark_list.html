@@ -1,0 +1,10 @@
+{% load static %}
+
+<h1>ブックマーク一覧</h1>
+<ul>
+    {% for bookmark in context.bookmarks %}
+        <li><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a> - {{ bookmark.description }}</li>
+    {% empty %}
+        <li>ブックマークはまだありません。</li>
+    {% endfor %}
+</ul>
