@@ -1,0 +1,28 @@
+:root {
+  /* プライマリカラー（メインの緑） */
+  --primary-color: #10b981;        /* エメラルドグリーン */
+  --primary-dark: #059669;         /* 濃い緑 */
+  --primary-light: #34d399;        /* 薄い緑 */
+  
+  /* セカンダリカラー */
+  --secondary-color: #6b7280;      /* グレー */
+  --secondary-dark: #374151;       /* 濃いグレー */
+  --secondary-light: #9ca3af;      /* 薄いグレー */
+  
+  /* アクセントカラー */
+  --accent-color: #f59e0b;         /* オレンジ */
+  --success-color: #059669;        /* 成功色（緑） */
+  --danger-color: #dc2626;         /* エラー色（赤） */
+  --warning-color: #d97706;        /* 警告色（オレンジ） */
+
+  /* 背景カラー */
+  --background-color: #f9fafb;
+  
+  /* ニュートラルカラー */
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-900: #111827;
+  --black: #000000;
+
+}
