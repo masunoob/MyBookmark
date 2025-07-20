@@ -4,7 +4,7 @@
 <p>{{ bookmark.url }}</p>
 <p>{{ bookmark.description }}</p>
 <form method="post">
-    {% csrf_token %}
-    <button type="submit">削除</button>
-    <a href="{% url 'bookmark_list' %}">戻る</a>
+  {% csrf_token %}
+  <button type="submit">削除</button>
+  <a href="{% url 'bookmark_list' %}">戻る</a>
 </form>
