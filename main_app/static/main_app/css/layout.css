@@ -1,4 +1,9 @@
 .container {
   max-width: 100%;
-  background-color: var(--background-color);
+}
+
+.mainWrapper {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
