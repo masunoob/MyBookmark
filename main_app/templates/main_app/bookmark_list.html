@@ -3,7 +3,7 @@
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'main_app/css/bookmark_list.css' %}">
-{% endblock %}
+{% endblock extra_css %}
 
 {% block content %}
   <div class="mainWrapper">
@@ -38,4 +38,4 @@
       {% endif %}
     </section>
   </div>
-{% endblock %}
+{% endblock content %}
