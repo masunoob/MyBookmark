@@ -14,20 +14,18 @@
         <div class="bookmarkList">
           {% for bookmark in context.bookmarks %}
             <div class="bookmark-wrapper">
-              <article class="bookmark-card-content">
+              <article class="bookmark-card-content" data-url="{{ bookmark.url }}">
                 <div class="bookmark-main-content">
-                  <a href="{{ bookmark.url }}" target="_blank" >
-                    <h2 class="bookmarkTitle">{{ bookmark.title }}</h2>
-                    <p class="bookmarkDescription">{{ bookmark.description }}</p>
-                  </a>
+                  <h2 class="bookmarkTitle">{{ bookmark.title }}</h2>
+                  <p class="bookmarkDescription">{{ bookmark.description }}</p>
                 </div>
                 <div class="bookmark-sub-content">
-                  <a href="{% url 'bookmark_edit' bookmark.pk %}" class="editButton">
+                  <button class="editButton" data-url="{% url 'bookmark_edit' bookmark.pk %}" data-id="{{ bookmark.pk }}">
                     <i class="fa-solid fa-pen-to-square"></i>
-                  </a>
-                  <a href="{% url 'bookmark_delete' bookmark.pk %}" class="deleteButton">
+                  </button>
+                  <button class="deleteButton" data-url="{% url 'bookmark_delete' bookmark.pk %}" data-id="{{ bookmark.pk }}">
                     <i class="fa-solid fa-trash"></i>
-                  </a>
+                  </button>
                 </div>
               </article>
             </div>
@@ -39,3 +37,7 @@
     </section>
   </div>
 {% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'main_app/js/pages/bookmark_list.js' %}"></script>
+{% endblock extra_js %}
