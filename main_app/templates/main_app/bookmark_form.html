@@ -1,16 +1,98 @@
 {% extends "main_app/base/base.html" %}
 {% load static %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'main_app/css/bookmark_form.css' %}">
+{% endblock extra_css %}
+
 {% block content %}
-  <h1>ブックマーク作成</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if form.instance.pk %}
-      <button type="submit">更新</button>
-    {% else %}
-      <button type="submit">作成</button>
-    {% endif %}
-    <a href="{% url 'bookmark_list' %}">戻る</a>
-  </form>
+  <div class="mainWrapper">
+    <div class="page-header">
+      <h1>ブックマーク作成</h1>
+      <button class="backButton primary btn-primary" data-url="{% url 'bookmark_list' %}">
+        <i class="fa-solid fa-arrow-left"></i>
+        戻る
+      </button>
+    </div>
+    <form method="post" class="bookmark-form">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}" class="form-label">
+          タイトル <span class="required">*</span>
+        </label>
+        <input 
+          type="text" 
+          name="{{ form.title.name }}" 
+          id="{{ form.title.id_for_label }}"
+          class="form-control{% if form.title.errors %} error{% endif %}"
+          placeholder="ブックマークのタイトルを入力してください"
+          value="{{ form.title.value|default:'' }}"
+          required
+        >
+        {% if form.title.errors %}
+          <div class="form-errors">
+            {% for error in form.title.errors %}
+              <span class="error-message">{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.url.id_for_label }}" class="form-label">
+          URL <span class="required">*</span>
+        </label>
+        <input 
+          type="url" 
+          name="{{ form.url.name }}" 
+          id="{{ form.url.id_for_label }}"
+          class="form-control{% if form.url.errors %} error{% endif %}"
+          placeholder="https://example.com"
+          value="{{ form.url.value|default:'' }}"
+          required
+        >
+        {% if form.url.errors %}
+          <div class="form-errors">
+            {% for error in form.url.errors %}
+              <span class="error-message">{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.description.id_for_label }}" class="form-label">
+          説明
+        </label>
+        <textarea 
+          name="{{ form.description.name }}" 
+          id="{{ form.description.id_for_label }}"
+          class="form-control{% if form.description.errors %} error{% endif %}"
+          placeholder="ブックマークの説明（任意）"
+          rows="4"
+        >{{ form.description.value|default:'' }}</textarea>
+        {% if form.description.errors %}
+          <div class="form-errors">
+            {% for error in form.description.errors %}
+              <span class="error-message">{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-actions">
+        {% if form.instance.pk %}
+          <button type="submit" class="btn btn-primary">更新</button>
+        {% else %}
+          <button type="submit" class="btn btn-primary">作成</button>
+        {% endif %}
+        <button type="button" class="btn btn-secondary" onclick="history.back()">キャンセル</button>
+      </div>
+    </form>
+  </div>
 {% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'main_app/js/pages/bookmark_form.js' %}"></script>
+{% endblock extra_js %}
