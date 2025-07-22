@@ -2,6 +2,7 @@ class BookmarkList {
   constructor() {
     this.init();
     this.bookmarkList;
+    this.createButton;
     this.editButton;
     this.deleteButton;
   }
@@ -12,6 +13,10 @@ class BookmarkList {
     this.bookmarkList.forEach(bookmark => {
       bookmark.addEventListener('click', this.handleArticleClick.bind(this));
     });
+
+    // 作成ボタン
+    this.createButton = document.querySelector('.createButton');
+    this.createButton.addEventListener('click', this.handleCreateButtonClick.bind(this));
 
     // 編集ボタン
     this.editButton = document.querySelectorAll('.editButton');
@@ -30,6 +35,15 @@ class BookmarkList {
   handleArticleClick(event) {
     const url = event.currentTarget.getAttribute('data-url');
     window.open(url, '_blank');
+  }
+
+  // 作成ボタンのクリックイベント
+  handleCreateButtonClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const url = event.currentTarget.getAttribute('data-url');
+    window.location.href = url;
   }
 
   // 編集ボタンのクリックイベント
