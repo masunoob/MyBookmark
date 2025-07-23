@@ -23,6 +23,11 @@
                 <div class="bookmark-main-content">
                   <h2 class="bookmarkTitle">{{ bookmark.title }}</h2>
                   <p class="bookmarkDescription">{{ bookmark.description }}</p>
+                  <div class="bookmark-tags">
+                    {% for tag in bookmark.tags.all %}
+                      <span class="bookmark-tag">{{ tag.name }}</span>
+                    {% endfor %}
+                  </div>
                 </div>
                 <div class="bookmark-sub-content">
                   <button class="editButton" data-url="{% url 'bookmark_edit' bookmark.pk %}" data-id="{{ bookmark.pk }}">

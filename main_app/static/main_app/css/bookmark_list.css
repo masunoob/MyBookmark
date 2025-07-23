@@ -87,6 +87,22 @@
   text-overflow: ellipsis;
 }
 
+.bookmark-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.bookmark-tag {
+  margin-right: 5px;
+  padding: 2px 8px;
+  background-color: var(--gray-100);
+  color: var(--gray-500);
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 /* 作成ボタン */
 .createButton {
   display: inline-flex;
