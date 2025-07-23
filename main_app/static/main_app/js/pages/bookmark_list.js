@@ -33,37 +33,29 @@ class BookmarkList {
 
   // ブックマークカードのクリックイベント
   handleArticleClick(event) {
-    const url = event.currentTarget.getAttribute('data-url');
-    window.open(url, '_blank');
+    NavigationService.navigateFromDataUrl(event.currentTarget, { newTab: true });
   }
 
   // 作成ボタンのクリックイベント
   handleCreateButtonClick(event) {
     event.preventDefault();
     event.stopPropagation();
-
-    const url = event.currentTarget.getAttribute('data-url');
-    window.location.href = url;
+    NavigationService.navigateFromDataUrl(event.currentTarget);
   }
 
   // 編集ボタンのクリックイベント
   handleEditButtonClick(event) {
     event.preventDefault();
     event.stopPropagation();
-
-    const url = event.currentTarget.getAttribute('data-url');
-    const id = event.currentTarget.getAttribute('data-id');
-    window.location.href = `${url}?id=${id}`;
+    NavigationService.navigateFromDataUrl(event.currentTarget);
   }
 
   // 削除ボタンのクリックイベント
   handleDeleteButtonClick(event) {
     event.preventDefault();
     event.stopPropagation();
-
-    const url = event.currentTarget.getAttribute('data-url');
-    const id = event.currentTarget.getAttribute('data-id');
-    window.location.href = `${url}?id=${id}`;
+    
+    NavigationService.navigateFromDataUrl(event.currentTarget);
   }
 }
 

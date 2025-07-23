@@ -1,0 +1,234 @@
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+/* フォームスタイル */
+.bookmark-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-100);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.required {
+  color: var(--danger-color);
+  font-weight: normal;
+}
+
+/* フォームコントロール */
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* プレースホルダーのスタイル */
+.form-control::placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.form-control::-moz-placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.form-control:-ms-input-placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+/* フォーカス時のプレースホルダー */
+.form-control:focus::placeholder {
+  opacity: 0.5;
+  transform: translateX(4px);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+  transform: translateX(4px);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus::-moz-placeholder {
+  opacity: 0.5;
+  transform: translateX(4px);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus:-ms-input-placeholder {
+  opacity: 0.5;
+  transform: translateX(4px);
+  transition: all 0.2s ease;
+}
+
+/* テキストエリア */
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* テキストエリア専用のプレースホルダー */
+textarea.form-control::placeholder {
+  line-height: 1.6;
+  padding-top: 2px;
+}
+
+/* フィールド別のプレースホルダー調整 */
+input[type="url"].form-control::placeholder {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* 入力値がある時の動的スタイル（オプション） */
+.form-control:not(:placeholder-shown) {
+  background-color: rgba(var(--primary-color-rgb), 0.02);
+}
+
+/* エラーメッセージ */
+.form-errors {
+  margin-top: 6px;
+}
+
+.error-message {
+  display: block;
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.form-control:invalid,
+.form-control.error {
+  border-color: var(--danger-color);
+}
+
+/* フォームアクション */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-100);
+}
+
+/* ボタンスタイル */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--gray-300);
+}
+
+.btn-secondary:hover {
+  background-color: var(--gray-100);
+  color: var(--text-primary);
+  border-color: var(--gray-400);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .backButton {
+    justify-content: center;
+  }
+  
+  .bookmark-form {
+    margin: 0 20px;
+    padding: 20px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}

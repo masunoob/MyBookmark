@@ -5,3 +5,8 @@ class BookmarkForm(forms.ModelForm):
     class Meta:
         model = Bookmark
         fields = ['title', 'url', 'description']
+        labels = {
+            'title': 'タイトル',
+            'url': 'URL', 
+            'description': '説明'
+        }
