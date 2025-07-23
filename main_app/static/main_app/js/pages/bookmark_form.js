@@ -12,8 +12,7 @@ class BookmarkForm {
       '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
       '#DDA0DD', '#FFB4B4', '#C7CEEA', '#B8E6B8', '#FFD93D'
     ];
-    
-    // プロパティ初期化後にinit()を呼ぶ
+
     this.init();
   }
 
@@ -37,7 +36,7 @@ class BookmarkForm {
       this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     }
 
-    // 新しいタグUI要素
+    // タグUI要素
     this.tagInput = document.getElementById('tag-input');
     this.tagsDisplay = document.getElementById('tags-display');
     this.tagsHiddenField = document.querySelector('input[name="tags"]');
@@ -119,7 +118,6 @@ class BookmarkForm {
 
   // タグの表示を追加
   addTagToDisplay(tagName) {
-    console.log(tagName);
     const tagElement = document.createElement('span');
     tagElement.className = 'tag';
     tagElement.style.backgroundColor = this.getTagColor(tagName);
