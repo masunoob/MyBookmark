@@ -85,6 +85,37 @@
         {% endif %}
       </div>
 
+      <div class="form-group">
+        <label for="tag-input" class="form-label">
+          タグ
+        </label>
+        
+        <!-- 実際のフォームデータ（隠し要素） -->
+        {{ form.tags }}
+        
+        <!-- タグ表示エリア -->
+        <div class="tags-display" id="tags-display">
+          <!-- 選択されたタグがここに表示される -->
+        </div>
+        
+        <!-- タグ入力用 -->
+        <input 
+          type="text" 
+          id="tag-input" 
+          class="form-control{% if form.tags.errors %} error{% endif %}" 
+          placeholder="タグを入力してください。スペース区切りで複数のタグを追加"
+          autocomplete="off"
+        >
+        
+        {% if form.tags.errors %}
+          <div class="form-errors">
+            {% for error in form.tags.errors %}
+              <span class="error-message">{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
       <div class="form-actions">
         {% if form.instance.pk %}
           <button type="submit" class="btn btn-primary">更新</button>

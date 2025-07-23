@@ -136,6 +136,78 @@ input[type="url"].form-control::placeholder {
   background-color: rgba(var(--primary-color-rgb), 0.02);
 }
 
+/* タグ関連のスタイル */
+.tags-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  min-height: 36px;
+  padding: 8px;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  background-color: var(--gray-50);
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.tags-display:empty {
+  display: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.tag-remove:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* タグ入力フィールドの調整 */
+#tag-input {
+  margin-top: 0;
+}
+
 /* エラーメッセージ */
 .form-errors {
   margin-top: 6px;
@@ -230,5 +302,23 @@ input[type="url"].form-control::placeholder {
   
   .btn {
     width: 100%;
+  }
+  
+  /* タグのモバイル対応 */
+  .tags-display {
+    padding: 6px;
+    gap: 6px;
+  }
+  
+  .tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    max-width: 150px;
+  }
+  
+  .tag-remove {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
   }
 }
