@@ -211,6 +211,23 @@
   transform: scale(1.02);
 }
 
+/* 検索結果表示 */
+.search-results {
+  margin: 10px 0;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.search-results-text {
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {  
   .createButton {
