@@ -66,6 +66,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--primary-color);
+  user-select: none;
   
   /* 長いタイトルを省略表示 */
   white-space: nowrap;
@@ -78,6 +79,7 @@
   color: #666;
   line-height: 1.4;
   flex-grow: 1;
+  user-select: none;
   
   /* 複数行の省略表示 */
   display: -webkit-box;
@@ -91,6 +93,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  user-select: none;
 }
 
 .bookmark-tag {
@@ -178,6 +181,61 @@
   font-size: 1rem;
 }
 
+/* 検索セクション */
+.search-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 検索フォーム */
+.search-form {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+  user-select: none;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-100);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* フォーカス状態 */
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* 親要素のフォーカス状態 */
+.search-form:focus-within {
+  transform: scale(1.02);
+}
+
+/* 検索結果表示 */
+.search-results {
+  margin: 10px 0;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.search-results-text {
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {  
   .createButton {
@@ -186,5 +244,9 @@
   
   .bookmark-wrapper {
     flex: 0 0 100%; /* モバイルでは1列 */
+  }
+  
+  .search-input {
+    max-width: 100%;
   }
 }
