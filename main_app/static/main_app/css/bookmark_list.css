@@ -181,6 +181,14 @@
   font-size: 1rem;
 }
 
+/* 検索セクション */
+.search-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
 /* 検索フォーム */
 .search-form {
   display: flex;

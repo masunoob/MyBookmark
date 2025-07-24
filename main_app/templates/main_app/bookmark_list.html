@@ -15,13 +15,16 @@
       </button>
     </div>
 
-    <search class="search-form">
-      <input class="search-input" type="text" placeholder="検索">
-    </search>
+    <!-- 検索フォーム -->
+    <section class="search-section">
+      <search class="search-form">
+        <input class="search-input" type="text" placeholder="検索">
+      </search>
 
-    <div class="search-results hidden">
-      <p class="search-results-text"></p>
-    </div>
+      <div class="search-results hidden">
+        <p class="search-results-text"></p>
+      </div>
+    </section>
 
     <section class="bookmark-section">
       {% if context.bookmarks %}
