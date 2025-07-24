@@ -181,6 +181,36 @@
   font-size: 1rem;
 }
 
+/* 検索フォーム */
+.search-form {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+  user-select: none;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-100);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* フォーカス状態 */
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* 親要素のフォーカス状態 */
+.search-form:focus-within {
+  transform: scale(1.02);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {  
   .createButton {
@@ -189,5 +219,9 @@
   
   .bookmark-wrapper {
     flex: 0 0 100%; /* モバイルでは1列 */
+  }
+  
+  .search-input {
+    max-width: 100%;
   }
 }
